@@ -1,2 +1,92 @@
-# Godot 4+ specific ignores
+# Godot-specific ignores
 .godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+.godot/
+
+# Godot 4.x specific
+.godot/
+
+# Build artifacts
+*.o
+*.os
+*.obj
+*.bc
+*.pyc
+*.dblite
+*.pdb
+*.lib
+*.config
+*.creator
+*.creator.user
+*.files
+*.includes
+*.idb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Android specific
+*.apk
+*.aar
+*.aab
+**/android/build/
+**/android/libs/
+**/android/app/libs/
+**/android/app/build/
+**/android/app/src/main/assets/
+**/android/local.properties
+
+# iOS specific
+**/ios/build/
+**/ios/Pods/
+**/ios/Podfile.lock
+**/ios/xcuserdata/
+**/ios/*.xcworkspace/
+**/ios/*.xcodeproj/
+
+# IDE specific files
+.idea/
+.vscode/
+*.code-workspace
+.vs/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+# Add any project-specific ignores below
+# For example:
+# builds/
+# assets/raw/
+# docs/design/
