@@ -1,6 +1,7 @@
 extends Area2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,3 +34,14 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 			
 
+
+
+func _on_body_entered(body):
+	hit.emit()
+	# disable the player's collision so that we don't trigger the hit signal more than once.
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
