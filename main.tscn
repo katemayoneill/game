@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq6pt447siyvl"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_48al7"]
+[ext_resource type="PackedScene" uid="uid://dq2yimdoebb74" path="res://npc.tscn" id="2_fu8sr"]
+[ext_resource type="PackedScene" uid="uid://gvrkaxs111ro" path="res://player.tscn" id="3_nuwiw"]
+
+[sub_resource type="Curve2D" id="Curve2D_a7ov6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 8, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Main" type="Node"]
+script = ExtResource("1_48al7")
+npc_scene = ExtResource("2_fu8sr")
+
+[node name="Player" parent="." instance=ExtResource("3_nuwiw")]
+
+[node name="NPCtimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="NPCpath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_a7ov6")
+
+[node name="NPCspawnLocation" type="PathFollow2D" parent="NPCpath"]
+position = Vector2(-0.206543, -0.00143433)
+
+[connection signal="hit" from="Player" to="." method="game_over"]
